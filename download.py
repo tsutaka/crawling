@@ -5,8 +5,8 @@ url = "http://uta.pw/shodou/img/28/214.png"
 savename = "test.png"
 
 # ファイルにダウンロード
-urllib.request.urlretrieve(url, savename)
-print("downloaded!")
+# urllib.request.urlretrieve(url, savename)
+# print("downloaded!")
 
 # メモリにダウンロード
 mem = urllib.request.urlopen(url).read()
