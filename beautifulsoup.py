@@ -6,19 +6,32 @@ import urllib.request as req
 
 url = "https://www.yahoo.co.jp/"
 url = "https://dekiru.net/article/13003/"
+url = "https://github.com/"
 
 # メモリにダウンロード
 with req.urlopen(url) as r:
     mem = r.read()
     text = mem.decode("utf-8")
-    print(text)
+    # print(text)
 
 soup = BeautifulSoup(text, 'html.parser')
 
 h1 = soup.html.body.h1
-p1 = soup.html.body.p
+p = soup.html.body.p
 
-print("h1 : " + str(h1))
-print("p1 : " + str(p1))
-print("h1 : " + str(h1.string))
-print("p1 : " + str(p1.string))
+if h1 != None:
+    print("h1 : " + str(h1.string))
+else:
+    print("h1 : None")
+
+if p != None:
+    print("p : " + str(p.string))
+else:
+    print("p : None")
+
+id1 = soup.find(type="submit")
+
+if id1 != None:
+    print("title : " + str(id1.string))
+else:
+    print("id1 : None")
