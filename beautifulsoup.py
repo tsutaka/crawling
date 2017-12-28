@@ -16,6 +16,7 @@ with req.urlopen(url) as r:
 
 soup = BeautifulSoup(text, 'html.parser')
 
+# tag search
 h1 = soup.html.body.h1
 p = soup.html.body.p
 
@@ -29,9 +30,20 @@ if p != None:
 else:
     print("p : None")
 
+# id search
 id1 = soup.find(type="submit")
 
 if id1 != None:
     print("title : " + str(id1.string))
 else:
     print("id1 : None")
+
+# links search
+links = soup.find_all("a")
+
+for a in links:
+    href = a.attrs['href']
+    text = a.string
+    print(text, ">", href)
+
+    
