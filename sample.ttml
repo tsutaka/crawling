@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<tt xmlns='http://www.w3.org/ns/ttml' xml:lang='en' >
+<body>
+<div>
+
+<p begin="00:00:01.567" end="00:00:03.987" >こんにちは。</p>
+<p begin="00:00:10.098" end="00:00:13.214" >やあ。<br/>久しぶり！</p>
+</div>
+
+</body>
+</tt>
