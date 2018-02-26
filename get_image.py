@@ -1,15 +1,23 @@
 # -*- coding: utf-8 -*-
 
 from bs4 import BeautifulSoup
-import urllib.request
 import re
 import urllib
 import os
 import http.cookiejar
 import json
+import urllib.request as req
 
 def get_soup(url,header):
-    return BeautifulSoup(urllib.urlopen(urllib2.Request(url,headers=header)),'html.parser')
+
+    request = req.Request(url, headers=header)
+    # メモリにダウンロード
+    with req.urlopen(request) as r:
+        mem = r.read()
+        text = mem.decode("utf-8")
+        # print(text)
+
+    return BeautifulSoup(text, 'html.parser')
 
 query = "Yokoyama yui"# 横山由依の画像を検索
 label="0"
@@ -41,8 +49,10 @@ if not os.path.exists(DIR):
 ###print images
 for i , (img , Type) in enumerate( ActualImages):
     try:
-        req = urllib2.Request(img, headers={'User-Agent' : header})
-        raw_img = urllib2.urlopen(req).read()
+        req = urllib.request.Request(img, headers={'User-Agent' : header})
+        raw_img = urllib.request.urlopen(req).read()
+        print("**:",req)
+        print("**:",raw_img)
 
         cntr = len([i for i in os.listdir(DIR) if label in i]) + 1
         print(cntr)
