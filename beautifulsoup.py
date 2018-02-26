@@ -32,7 +32,7 @@ else:
 
 # id search
 id1 = soup.find(type="submit")
-
+#
 if id1 != None:
     print("title : " + str(id1.string))
 else:
