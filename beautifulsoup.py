@@ -4,8 +4,6 @@ from bs4 import BeautifulSoup
 import urllib.request as req
 
 
-# url = "https://www.yahoo.co.jp/"
-# url = "https://dekiru.net/article/13003/"
 url = "https://github.com/"
 
 # メモリにダウンロード
